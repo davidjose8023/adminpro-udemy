@@ -1,9 +1,15 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+//import { CommonModule } from '@angular/common';
 
 // modulos
 
 import { PagesModule } from './pages/pages.module';
+import { FormsModule } from '@angular/forms';
+import { ServiceModule } from './service/service.module';
+
+// service
+
 
 // componentes
 import { AppComponent } from './app.component';
@@ -23,7 +29,11 @@ import { APP_ROUTES } from './app.routes';
   imports: [
     BrowserModule,
     APP_ROUTES,
-    PagesModule
+    //CommonModule,
+    PagesModule,
+    FormsModule,
+    ServiceModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
