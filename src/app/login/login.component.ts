@@ -4,8 +4,6 @@ import { Title } from '@angular/platform-browser';
 import { NgForm } from '@angular/forms';
 import { UsuarioService } from '../service/service.index';
 import { Usuario } from '../models/usuario.model';
-import { URL_SERVICIOS } from '../config/config';
-import { Subscriber } from 'rxjs';
 
 declare function init_plugins();
 

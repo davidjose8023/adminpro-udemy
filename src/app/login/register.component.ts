@@ -6,6 +6,7 @@ import swal from 'sweetalert';
 import { UsuarioService } from '../service/service.index';
 import { Usuario } from '../models/usuario.model';
 import { Router } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 
 declare function init_plugins();
 
@@ -20,7 +21,8 @@ export class RegisterComponent implements OnInit {
 
   constructor(
     public _usuarioService: UsuarioService,
-    public router: Router
+    public router: Router,
+    private titulo_navegador: Title,
   ) { }
 
   sonIguales(campo1: string, campo2: string){
@@ -42,6 +44,7 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
 
     init_plugins();
+    this.titulo_navegador.setTitle('Cloud H & S | Registrar');
 
     this.forma = new FormGroup({
       
