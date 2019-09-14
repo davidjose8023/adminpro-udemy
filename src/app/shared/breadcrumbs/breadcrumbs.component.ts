@@ -15,7 +15,7 @@ export class BreadcrumbsComponent implements OnInit {
 
     
     this.getDataRoute().subscribe(event =>{
-      console.log(event);
+      //console.log(event);
       this.titulo = event.titulo;
       this.titulo_navegador.setTitle('Cloud H & S | '+ event.titulo);
       const metaTag : MetaDefinition ={
