@@ -30,7 +30,7 @@ export class SubirArchivoService {
   
             console.log('subida fallida');
   
-            reject(JSON.parse( xhr.response ));
+            reject(xhr.response);
           }
         }
         

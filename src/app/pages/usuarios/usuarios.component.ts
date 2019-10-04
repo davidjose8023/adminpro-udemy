@@ -22,13 +22,13 @@ export class UsuariosComponent implements OnInit {
   desde: number = 0;
   totalRegistro: number= 0;
   cargando: boolean = true;
-  constructor(public _usuarioService: UsuarioService,public _modalUploadService: ModalUploadService,) { }
+  constructor(public _usuarioService: UsuarioService,public _modalUploadService: ModalUploadService) { }
 
   ngOnInit() {
 
     this.cargarUsuarios();
     this._modalUploadService.notificador
-            .subscribe( resp => this. cargarUsuarios());
+            .subscribe( resp => this.cargarUsuarios());
   }
 
   cargarUsuarios(){

@@ -1,6 +1,9 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { Usuario } from '../../models/usuario.model';
 import { UsuarioService } from 'src/app/service/usuario/usuario.service';
+import { HospitalService } from '../../service/hospital/hospital.service';
+import { Hospital } from '../../models/hospital.model';
+import { MedicoService } from '../../service/medico/medico.service';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +17,9 @@ export class ModalUploadService {
   public usuario: Usuario;
   public img: any;
   
-  constructor(public _serviceUsuario: UsuarioService) {
+  constructor(public _serviceUsuario: UsuarioService, 
+    public _hospitalService: HospitalService,
+    public _medicoService: MedicoService) {
 
     //console.log("modal servico");
    }
@@ -42,21 +47,20 @@ export class ModalUploadService {
           } );
         break;
       case 'medicos':
-          this._serviceUsuario.getUsuarioId(id)
-          .subscribe( (resp: Usuario) => {
+          this._medicoService.obtenerMedico(id)
+          .subscribe( (resp: any) => {
     
-            this.usuario = resp;
-            this.img = resp.img;
+            
+            this.img = resp.medico.img;
             
 
           } );
         break;
-      case 'hospoitales':
-        this._serviceUsuario.getUsuarioId(id)
-        .subscribe( (resp: Usuario) => {
-  
-          this.usuario = resp;
-          this.img = resp.img;
+      case 'hospitales':
+        this._hospitalService.obtenerHospital(id)
+        .subscribe( (resp: any) => {
+          //console.log(resp);
+          this.img = resp.hospital.img;
           
 
         } );

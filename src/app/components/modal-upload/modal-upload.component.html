@@ -9,9 +9,9 @@
             </div>
             <div class="modal-body">
                 <form>
-                    <img *ngIf="!imagenTemp" [src]="_modalUploadService.img || 'xxx' | imagen" class="w150">
+                    <img *ngIf="!imagenTemp" [src]="_modalUploadService.img || 'xxx' | imagen: _modalUploadService.tipo" class="w150">
                     <img *ngIf="imagenTemp" [src]="imagenTemp" class="w150">
-                    <input (change)= "seleccionImagen( $event.target.files[0] )" type="file">
+                    <input #archivoImg (change)= "seleccionImagen( $event.target.files[0] )" type="file">
                 </form>
             </div>
             <div class="modal-footer">
