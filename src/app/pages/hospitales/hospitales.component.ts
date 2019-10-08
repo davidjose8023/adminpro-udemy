@@ -166,7 +166,7 @@ export class HospitalesComponent implements OnInit {
     .then((value: string) => {
       if(!value ||  value.length <= 0){
 
-        swal("Error", "El campo no puede estar vacio", "error");
+        //swal("Error", "El campo no puede estar vacio", "error");
         return;
 
       }
@@ -176,6 +176,9 @@ export class HospitalesComponent implements OnInit {
       return this._hospitalService.crearHospital(hospital);
       //swal(`You typed: ${value}`);
     }).then((observable: any) => {
+      if(!observable){
+        return;
+      }
       observable.subscribe((resp: any) =>{
 
         this.cargarHospitales();

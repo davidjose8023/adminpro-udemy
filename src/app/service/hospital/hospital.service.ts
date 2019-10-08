@@ -64,7 +64,7 @@ export class HospitalService {
 
     return this.http.post(url, hospital).pipe(map((response: any) => {
 
-      swal("Bien Hecho", "Operación Exitosa", "success");
+      //swal("Bien Hecho", "Operación Exitosa", "success");
       return response.hospital;
       
     }));

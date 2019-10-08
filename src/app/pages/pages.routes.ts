@@ -6,12 +6,13 @@ import { Graficas1Component } from './graficas1/graficas1.component';
 import { AccoutSettingsComponent } from './accout-settings/accout-settings.component';
 import { PromesasComponent } from './promesas/promesas.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
-import { LoginGuardsGuard } from '../service/service.index';
+import { LoginGuardsGuard, AdminGuard } from '../service/service.index';
 import { ProfileComponent } from './profile/profile.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
 import { HospitalesComponent } from './hospitales/hospitales.component';
 import { MedicosComponent } from './medicos/medicos.component';
 import { MedicoComponent } from './medicos/medico.component';
+import { BusquedaComponent } from './busqueda/busqueda.component';
 
 
 const pagesRoutes: Routes = [
@@ -26,9 +27,15 @@ const pagesRoutes: Routes = [
             { path : 'promesas',  component : PromesasComponent, data: { titulo: 'Promesas' } },
             { path : 'rxjs',  component : RxjsComponent, data: { titulo: 'Rxjs' } },
             { path : 'profile',  component : ProfileComponent, data: { titulo: 'Perfil' } },
+            { path : 'busqueda/:termino',  component : BusquedaComponent, data: { titulo: 'Buscador' } },
             { path : 'account-settings',  component : AccoutSettingsComponent, data: { titulo: 'Ajustes de Temas' } },
             //Mantenimiento::::::::::::::::::::::
-            { path : 'usuarios',  component : UsuariosComponent, data: { titulo: 'Mantenimiento de Usuarios' } },
+            { 
+                path : 'usuarios',  
+                canActivate: [ AdminGuard ],
+                component : UsuariosComponent, 
+                data: { titulo: 'Mantenimiento de Usuarios' } 
+            },
             { path : 'hospitales',  component : HospitalesComponent, data: { titulo: 'Mantenimiento de Hospitales' } },
             { path : 'medicos',  component : MedicosComponent, data: { titulo: 'Mantenimiento de Médicos' } },
             { path : 'medico/:id',  component : MedicoComponent, data: { titulo: 'Actualizar Médico' } },
